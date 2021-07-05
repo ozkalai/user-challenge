@@ -14,6 +14,16 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/utils/axios.js",
+    "pages/index.js",
+    "pages/_app.js",
+    "src/components/user-item.js",
+    "src/services/get-users.js",
+    "src/services/get-user-details.js"
+  ],
   "exclude": ["node_modules"]
 }
