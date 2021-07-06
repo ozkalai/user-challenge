@@ -20,7 +20,7 @@ export default function UserList() {
   }
 
   return (
-    <div className="flex flex-wrap justify-center items-center bg-white rounded-lg mx-10">
+    <div className="flex flex-wrap justify-center min-h-0 items-center bg-white rounded-lg w-11/12 mx-auto mt-10">
       {data?.data.map((user) => (
         <UserItem user={user} key={user.id} />
       ))}
