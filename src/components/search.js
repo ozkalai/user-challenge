@@ -13,7 +13,7 @@ export default function Search() {
         />
 
         <div className="p-4">
-          <button className="bg-black text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-8 h-8 flex items-center justify-center">
+          <button className="bg-secondary text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-8 h-8 flex items-center justify-center">
             <AiOutlineSearch />
           </button>
         </div>
