@@ -3,7 +3,7 @@ import { useInfiniteQuery } from "react-query";
 import { getUsers } from "../services/get-users";
 import { UserItem } from "./user-item";
 
-export default function UserList({ filteredData, setFilteredData }) {
+export default function UserList({ filteredData, setFilteredData, results }) {
   const {
     data,
     isFetching,
@@ -19,11 +19,6 @@ export default function UserList({ filteredData, setFilteredData }) {
     },
     {
       getNextPageParam: (lastPage) => {
-        console.log({
-          lastPage: lastPage,
-          totalPage: lastPage.data.total,
-          page: lastPage.data.page,
-        });
         if (lastPage.data.page < lastPage.data.total)
           return lastPage.data.page + 1;
         return false;
@@ -32,21 +27,29 @@ export default function UserList({ filteredData, setFilteredData }) {
     }
   );
 
+  const users = (data) => {
+    const userData = data
+      ? data.pages.map((page) => page.data.data.map((item) => item))
+      : "";
+    const allUsers = Array.prototype.concat(...userData);
+    return allUsers;
+  };
+
   useEffect(() => {
-    setFilteredData(data);
+    setFilteredData(users(data));
   }, [data]);
 
   return (
     <>
       <div className="flex flex-wrap justify-center min-h-0 items-center bg-white rounded-lg w-11/12 mx-auto mt-10">
-        {data
-          ? data.pages.map((page) => (
-              <React.Fragment key={page.data.page}>
-                {page &&
-                  page.data.data.map((el) => <UserItem key={el.id} el={el} />)}
-              </React.Fragment>
-            ))
-          : ""}
+        {results.map((el) => (
+          <UserItem
+            key={el.id}
+            el={el}
+            filteredData={filteredData}
+            setFilteredData={setFilteredData}
+          />
+        ))}
       </div>
       <div className="flex justify-center">
         <button
