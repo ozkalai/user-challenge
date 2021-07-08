@@ -3,8 +3,7 @@ import { useQuery } from "react-query";
 import { getUserDetails } from "../services/get-user-details";
 import Image from "next/image";
 
-const UserItemBase = ({ el }) => {
-  console.log(el);
+const UserItemBase = ({ el, filteredData, setFilteredData }) => {
   const { data, isFetching } = useQuery(
     ["user-details", el.id],
     async () => {
@@ -15,12 +14,6 @@ const UserItemBase = ({ el }) => {
       refetchOnWindowFocus: false,
     }
   );
-
-  console.log("user details", {
-    isFetching,
-    userId: el.id,
-    data,
-  });
 
   const year = new Date().getFullYear();
   const yearOfBirth = data && data.dateOfBirth.slice(0, 4);
