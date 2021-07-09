@@ -20,8 +20,8 @@ const UserItemBase = ({ el }) => {
 
   return (
     <div className="w-full relative sm:w-3/4 md:w-1/3 lg:w-1/4 xl:w-48 2xl:w-56 shadow-md hover:shadow-lg mx-4 my-4 cursor-pointer rounded-lg p-4">
-      <div className="w-full absolute top-0 left-0  h-24 bg-gray-400 rounded-t-lg"></div>
-      <div className="w-full h-40 flex justify-center mt-4">
+      <div className="w-full absolute top-0 left-0 h-24 bg-gray-400 rounded-t-lg"></div>
+      <div className="w-full h-40 flex justify-center ">
         <div className="w-40 h-40 bg-gray-400 rounded-full z-10 relative overflow-hidden">
           {data && (
             <>
@@ -36,7 +36,7 @@ const UserItemBase = ({ el }) => {
           )}
         </div>
       </div>
-      <div className="w-full h-40 flex justify-start items-center pt-5  flex-col font-sans">
+      <div className="w-full h-40 flex justify-start items-center pt-5 flex-col font-sans">
         <div className="flex items-center">
           <p className="text-center w-full text-xl font-semibold  ">
             {data ? `${data && data.firstName} ${data && data.lastName}` : ""}
