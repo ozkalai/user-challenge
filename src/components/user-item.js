@@ -29,7 +29,8 @@ const UserItemBase = ({ el }) => {
                 className="image"
                 src={data.picture}
                 alt="user"
-                layout="fill"
+                width={120}
+                height={120}
                 objectFit="cover"
               />
             </>
