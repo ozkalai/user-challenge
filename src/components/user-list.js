@@ -41,7 +41,7 @@ export default function UserList({ filteredData, setFilteredData, results }) {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center min-h-0 items-center bg-white rounded-lg w-11/12 mx-auto mt-10">
+      <div className="flex flex-wrap justify-center min-h-0 items-center bg-white rounded-lg w-11/12 mx-auto mt-10 py-4">
         {results.map((el) => (
           <UserItem
             key={el.id}
