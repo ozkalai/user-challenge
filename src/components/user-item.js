@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 import { getUserDetails } from "../services/get-user-details";
 import Image from "next/image";
 
-const UserItemBase = ({ el, filteredData, setFilteredData }) => {
+const UserItemBase = ({ el }) => {
   const { data, isFetching } = useQuery(
     ["user-details", el.id],
     async () => {

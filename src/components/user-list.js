@@ -3,7 +3,7 @@ import { useInfiniteQuery } from "react-query";
 import { getUsers } from "../services/get-users";
 import { UserItem } from "./user-item";
 
-export default function UserList({ filteredData, setFilteredData, results }) {
+export default function UserList({ searchTerm }) {
   const {
     data,
     isFetching,
@@ -27,28 +27,27 @@ export default function UserList({ filteredData, setFilteredData, results }) {
     }
   );
 
-  const users = (data) => {
-    const userData = data
-      ? data.pages.map((page) => page.data.data.map((item) => item))
-      : "";
-    const allUsers = Array.prototype.concat(...userData);
-    return allUsers;
-  };
+  const mergedPages = React.useMemo(() => {
+    const merged = [].concat(
+      ...(data?.pages.map((el) => el?.data.data ?? []) ?? [])
+    );
+    const filtered = merged.filter((item) =>
+      `${item.firstName} ${item.lastName}`.toLowerCase().includes(searchTerm)
+    );
 
-  useEffect(() => {
-    setFilteredData(users(data));
-  }, [data]);
+    return filtered;
+  }, [data, searchTerm]);
+
+  console.log({
+    mergedPages: mergedPages,
+    value: searchTerm,
+  });
 
   return (
     <>
       <div className="flex flex-wrap justify-center min-h-0 items-center bg-white rounded-lg w-11/12 mx-auto mt-10 py-4">
-        {results.map((el) => (
-          <UserItem
-            key={el.id}
-            el={el}
-            filteredData={filteredData}
-            setFilteredData={setFilteredData}
-          />
+        {mergedPages.map((el) => (
+          <UserItem key={el.id} el={el} />
         ))}
       </div>
       <div className="flex justify-center">

@@ -4,17 +4,12 @@ import UserList from "../src/components/user-list";
 import { AiOutlineSearch } from "react-icons/ai";
 
 export default function Home() {
-  const [filteredData, setFilteredData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleOnChange = (e) => {
     const value = e.target.value;
     setSearchTerm(value);
   };
-
-  const results = filteredData.filter((user) => {
-    return user.firstName.toLowerCase().includes(searchTerm.toLowerCase());
-  });
 
   return (
     <div className="bg-main min-h-screen">
@@ -45,11 +40,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <UserList
-        filteredData={filteredData}
-        setFilteredData={setFilteredData}
-        results={results}
-      />
+      <UserList searchTerm={searchTerm} />
     </div>
   );
 }
