@@ -27,7 +27,7 @@ export default function Home() {
               <AiOutlineSearch />
             </div>
           </div>
-          <div className="bg-white flex items-center shadow-xl">
+          <div className="bg-white flex items-center">
             <input
               className="w-full px-2 text-gray-700 leading-tight focus:outline-none text-xs md:text-sm lg:text-lg"
               id="search"
