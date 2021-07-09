@@ -19,9 +19,9 @@ const UserItemBase = ({ el }) => {
   const yearOfBirth = data && data.dateOfBirth.slice(0, 4);
 
   return (
-    <div className="w-full relative sm:w-3/4 md:w-1/3 lg:w-1/4 xl:w-48 2xl:w-56 shadow-md hover:shadow-lg mx-4 my-4 cursor-pointer rounded-lg">
-      <div className="w-full absolute top-0 left-0  h-20 bg-gray-400 rounded-t-lg"></div>
-      <div className="w-full h-40 flex justify-center">
+    <div className="w-full relative sm:w-3/4 md:w-1/3 lg:w-1/4 xl:w-48 2xl:w-56 shadow-md hover:shadow-lg mx-4 my-4 cursor-pointer rounded-lg p-4">
+      <div className="w-full absolute top-0 left-0  h-24 bg-gray-400 rounded-t-lg"></div>
+      <div className="w-full h-40 flex justify-center mt-4">
         <div className="w-40 h-40 bg-gray-400 rounded-full z-10 relative overflow-hidden">
           {data && (
             <>
@@ -42,7 +42,7 @@ const UserItemBase = ({ el }) => {
             {data ? `${data && data.firstName} ${data && data.lastName}` : ""}
           </p>
         </div>
-        <p className="text-lg md:text-sm lg:text-md w-42 text-center mt-4 overflow-hidden overflow-ellipsis">
+        <p className="text-lg md:text-sm lg:text-md w-42 text-center mt-4 truncate max-w-full overflow-hidden overflow-ellipsis">
           {data ? data.email : ""}
         </p>
         <p className="text-sm md:text-sm lg:text-md mt-4 font-semibold ">

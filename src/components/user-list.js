@@ -47,7 +47,7 @@ export default function UserList({ searchTerm }) {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center items-center bg-white rounded-lg w-11/12 mx-auto mt-10 py-4">
+      <div className="flex flex-wrap justify-center items-center bg-white rounded-lg w-11/12 mx-auto mt-10 py-4 min-h-screen">
         {filteredPages.map((el) => (
           <UserItem key={el.id} el={el} />
         ))}
