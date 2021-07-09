@@ -2,6 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 import { getUserDetails } from "../services/get-user-details";
 import Image from "next/image";
+import "tailwindcss/tailwind.css";
 
 const UserItemBase = ({ el }) => {
   const { data, isFetching } = useQuery(
@@ -22,15 +23,14 @@ const UserItemBase = ({ el }) => {
     <div className="w-full relative sm:w-3/4 md:w-1/3 lg:w-1/4 xl:w-48 2xl:w-56 shadow-md hover:shadow-lg mx-4 my-4 cursor-pointer rounded-lg">
       <div className="w-full absolute top-0 left-0  h-20 bg-gray-400 rounded-t-lg"></div>
       <div className="w-full h-40 flex justify-center">
-        <div className="w-40 h-40 rounded-full z-10 relative overflow-hidden">
+        <div className="w-40 h-40 bg-gray-400 rounded-full z-10 relative overflow-hidden">
           {data && (
             <>
               <Image
                 className="image"
                 src={data.picture}
                 alt="user"
-                width={120}
-                height={120}
+                layout="fill"
                 objectFit="cover"
               />
             </>

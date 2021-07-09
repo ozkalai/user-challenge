@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useInfiniteQuery } from "react-query";
 import { getUsers } from "../services/get-users";
 import { UserItem } from "./user-item";
+import "tailwindcss/tailwind.css";
 
 export default function UserList({ searchTerm }) {
   const {
@@ -46,7 +47,7 @@ export default function UserList({ searchTerm }) {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center min-h-0 items-center bg-white rounded-lg w-11/12 mx-auto mt-10 py-4">
+      <div className="flex flex-wrap justify-center items-center bg-white rounded-lg w-11/12 mx-auto mt-10 py-4">
         {filteredPages.map((el) => (
           <UserItem key={el.id} el={el} />
         ))}
